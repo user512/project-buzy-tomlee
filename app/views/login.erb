@@ -1,0 +1,35 @@
+<% if params[:error] %>
+  <%= "Not a valid username/password combination!" %>
+<% end %>
+<br>
+<h2> Login </h2>
+
+<form action="/login" class="pure-form pure-form-aligned" method="post">
+    <fieldset>
+        <div class="pure-control-group">
+            <label for="username">Username</label>
+            <input class="pure-input-rounded" type="text"name="username" placeholder="JakeTheDog">
+        </div>
+
+        <div class="pure-control-group">
+            <label for="password">Password</label>
+            <input class="pure-input-rounded" type="password" name="password_attempt" placeholder="**********">
+        </div>
+
+        <div class="pure-controls">
+            <input type="submit" value="Login" class="pure-button pure-button-primary">
+        </div>
+    </fieldset>
+</form>
+<br>
+<br>
+<!-- Table so that button aligns after the bold text -->
+<table class="pure-table pure-table-horizontal">
+  <tbody>
+      <tr>
+        <td><b>Not an user?</b> </td>
+        <td><a href="/signup" class="button-success pure-button"> Signup </a></td>
+      </tr>
+  </tbody>
+</table>
+

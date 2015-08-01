@@ -1,0 +1,8 @@
+
+  <%= erb :"tweets/_new" %>
+
+<h2>Main Feed</h2>
+<p>
+  <%= erb :"tweets/_index", locals: { pool: @all_tweets_pool  } %>
+
+</p>
