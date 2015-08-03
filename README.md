@@ -1,3 +1,1 @@
-This repo should be used to hold your phase 2, week 1 passion project.
-
-see more about [portfolio challenges and passion projects here](../../../phase-2-guide/blob/sf/portfolio_challenges.md)
+## Buzy is a location-oriented, social networking and news website, where registered member can submit contents and votes on content to determine post's position or hide post by downvoting.
