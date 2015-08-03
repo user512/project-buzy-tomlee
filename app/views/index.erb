@@ -1,0 +1,35 @@
+<h1>Buzy: Spread your Buzz in your community</h1>
+
+<div class='container'>
+  <ul>
+  <li>New User Registration</li>
+  <form action="/user/new" method="post">
+
+    <li><label>Desired Username: </label>
+    <input type="text" name="username" placeholder="username" maxlength="30"></li>
+
+    <li><label>Set your password: </label>
+    <input type="password" name="password" placeholder="password"></li>
+
+    <li><label>Confirm Password: </label>
+    <input type="password" name="confirm_password" placeholder="Re-enter password"></li>
+
+    <li><input class='button' type="submit" value="Register"></input></li>
+  </ul>
+
+  <ul>
+    <li>User Login</li>
+    <form action="/login" method ="post"></form>
+
+    <li><label>Username: </label>
+    <input type="text" name="username" placeholder="username" maxlength="30"></li>
+
+    <li><label>Password: </label>
+    <input type="password" name="password" placeholder="password"></li>
+
+    <li><input class='button' type="submit" value="Login"></input></li>
+
+
+  </ul>
+  </form>
+
