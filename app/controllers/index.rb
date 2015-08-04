@@ -19,13 +19,13 @@ end
 
 post '/login' do
   @user = User.find_by(username: params[:username])
-  if @user.password == params[:password]
-    session[:user_id] = @user_id
-    redirect "/dashboard/#{@user.username}"
-  else
+  if @user == nil || @user.password != params[:password]
     @error_message = "Incorrect username or password, please try again."
-    # probably not RESTful
     erb :index
+  elsif @user.password == params[:password]
+    session[:user_id] = @user.id
+    # redirect '/testing'
+    redirect "/dashboard/#{params[:username]}"
   end
 end
 
