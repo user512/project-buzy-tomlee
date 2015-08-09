@@ -16,33 +16,36 @@ var startUp = function getLocation() {
 window.onload = startUp();
 
 function success(position) {
-    x.innerHTML="Latitude: " + position.coords.latitude +
-    "<br>Longitude: " + position.coords.longitude;
-    var map;
-    map = new google.maps.Map(document.getElementById('map-canvas'), {
-      zoom: 12,
-      center: {lat: position.coords.latitude, lng: position.coords.longitude}
-    });
-    google.maps.event.addDomListener(window, 'load', success);
+  x.innerHTML="Latitude: " + position.coords.latitude +
+  "<br>Longitude: " + position.coords.longitude;
+  var myCenter = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+
+  var mapProp = {
+  center: myCenter,
+  zoom:11,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+
+  var map = new google.maps.Map(document.getElementById("map-canvas"),mapProp);
+
+  var myCity = new google.maps.Circle({
+  center:myCenter,
+  radius:3000,
+  strokeColor:"#0000FF",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor:"#0000FF",
+  fillOpacity:0.4
+  });
+
+  myCity.setMap(map);
+
+  google.maps.event.addDomListener(window, 'load', success);
+
 }
 
 
 function failure(position) {
-  switch(error.code) {
-        case error.PERMISSION_DENIED:
-            x.innerHTML = "User denied the request for Geolocation."
-            break;
-        case error.POSITION_UNAVAILABLE:
-            x.innerHTML = "Location information is unavailable."
-            break;
-        case error.TIMEOUT:
-            x.innerHTML = "The request to get user location timed out."
-            break;
-        case error.UNKNOWN_ERROR:
-            x.innerHTML = "An unknown error occurred."
-            break;
-    }
+  x.innerHTML = "Please enable location for best Buzy experience!"
 }
-
-google.maps.event.addDomListener(window, 'load');
 
