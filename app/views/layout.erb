@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <!--
     normalize.css removes cross-browser differences in defaults, e.g.,
     differences in how form elements appear between Firefox and IE
@@ -13,20 +14,22 @@
   <link rel="stylesheet" href="/css/application.css">
 
 
+
   <title>Buzy: Spread your Buzz in your community</title>
 </head>
 <body>
-
-    <p id="demo"></p>
 
   <% if session[:user_id] %>
     <a class="pure-button" href="/logout">Logout</a>
   <% end %>
   <%= yield %>
-
+  <button class="pure-button" onclick="startUp">Refresh Location</button>
   <p id="demo"></p>
+  <div id="map-canvas"></div>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
   <script src="/js/application.js"></script>
+
 </body>
 </html>
