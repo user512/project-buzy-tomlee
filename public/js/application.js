@@ -1,4 +1,9 @@
-
+(function (window, document) {
+document.getElementById('toggle').addEventListener('click', function (e) {
+    document.getElementById('tuckedMenu').classList.toggle('custom-menu-tucked');
+    document.getElementById('toggle').classList.toggle('x');
+});
+})(this, this.document);
 
   // For AJAX
   // $('a').click(function() {
@@ -9,6 +14,7 @@ var x = document.getElementById("demo");
 var startUp = function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(success, failure);
+        navigator.geolocation.getCurrentPosition(setGeoCookie);
     } else {
         x.innerHTML = "Geolocation is not supported by this browser.";}
     }
