@@ -29,11 +29,13 @@ end
 
 
 
-# post "/dashboard/:username/post/new" do
-
-#     @user = User.find_by(username: params[:username])
-#     Post.create(title: params[:title], content: params[:content], user_id: session[:user_id])
-#     redirect '/'
-
-# end
+post "/dashboard/:username/post/new" do
+  if session[:user_id]
+    @user = User.find_by(username: params[:username])
+    Post.create(title: params[:title], content: params[:content], user_id: session[:user_id])
+    redirect "/dashboard/#{params[:username]}"
+  else
+    redirect '/'
+  end
+end
 

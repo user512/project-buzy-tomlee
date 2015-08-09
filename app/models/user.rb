@@ -14,18 +14,4 @@ class User < ActiveRecord::Base
     self.password_hash = @password
   end
 
-  def create
-    @user = User.new(params[:uesr])
-    @user.password = params[:password]
-    @user.save!
-  end
-
-  def login
-    @user = User.find_by_email(params[:email])
-    if @user.password == params[:password]
-      given_token
-    else
-      redirect_to home_url
-    end
-  end
 end

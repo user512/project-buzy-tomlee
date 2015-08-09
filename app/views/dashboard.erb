@@ -1,0 +1,11 @@
+<div class='container'>
+
+  <% @posts.each do |post|%>
+    <% post_id = post.id %>
+    <article><a id ="<%= post_id %>"href="/dashboard/<%= @username %>/post/<%= post_id %>"><%= post.title %></a></article>
+  <% end %>
+
+  <% if session[:user_id] == @user.id %>
+    <a class="pure-button" href="/dashboard/<%= @username %>/post/new">Buzz</a>
+  <% end %>
+</div>

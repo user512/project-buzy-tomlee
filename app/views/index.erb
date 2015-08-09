@@ -14,12 +14,18 @@
     <li><label>Confirm Password: </label>
     <input type="password" name="confirm_password" placeholder="Re-enter password"></li>
 
-    <li><input class='button' type="submit" value="Register"></input></li>
+    <li><input class='button' type="submit" value="Register"></li>
+  </form>
   </ul>
+
+  <% if @mismatch_error_message %>
+    <p><%= @mismatch_error_message %></p>
+  <% end %>
+
 
   <ul>
     <li>User Login</li>
-    <form action="/login" method ="post"></form>
+    <form action='/login' method ='post'>
 
     <li><label>Username: </label>
     <input type="text" name="username" placeholder="username" maxlength="30"></li>
@@ -27,9 +33,11 @@
     <li><label>Password: </label>
     <input type="password" name="password" placeholder="password"></li>
 
-    <li><input class='button' type="submit" value="Login"></input></li>
-
-
-  </ul>
+    <li><input class='button' type="submit" value="Login"></li>
   </form>
+  </ul>
+
+  <% if @error_message %>
+    <p><%= @error_message %></p>
+  <% end %>
 

@@ -3,8 +3,8 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |t|
       t.string :title
       t.string :content
-      t.integer :vote
-      t.integer :view
+      t.integer :vote, default: 0
+      t.integer :view, default: 0
       t.integer :location_id
       t.integer :user_id
 

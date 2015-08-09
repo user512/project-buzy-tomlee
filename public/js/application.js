@@ -1,7 +1,25 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  // For AJAX
+  // $('a').click(function() {
+  //   event.preventDefault();
+  // });
+var x = document.getElementById("demo");
+
+window.onload = function () {
+    if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(success, failure);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";}
+    }
+
+function success(position) {
+    x.innerHTML="Latitude: " + position.coords.latitude +
+    "<br>Longitude: " + position.coords.longitude;
+}
+
+function failure(position) {
+  x.innerHTML = "Geolocation is not supported by this browser.";
+}
+
 });

@@ -12,16 +12,19 @@
   -->
   <link rel="stylesheet" href="/css/application.css">
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="/js/application.js"></script>
 
   <title>Buzy: Spread your Buzz in your community</title>
 </head>
 <body>
-  <a href="/logout">Logout</a>
+    <p id="demo"></p>
   <% if session[:user_id] %>
-    <a href="/logout">Logout</a>
+    <a class="pure-button" href="/logout">Logout</a>
   <% end %>
   <%= yield %>
+
+  <p id="demo"></p>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/js/application.js"></script>
 </body>
 </html>

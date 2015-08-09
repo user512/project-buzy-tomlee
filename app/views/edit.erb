@@ -1,0 +1,17 @@
+<div class='container'>
+  <% if session[:user_id] == @post.user_id %>
+  <article><a href="/dashboard/<%= @user.username %>">Dashboard</a></article>
+
+  <form action="/dashboard/<%= @user.username %>/post/<%= @post.id %>/edit" method="post">
+    <input type="test" name="title" value="<%= @post.title %>">
+    <input type="text" name="content" value="<%= @post.content %>">
+    <input type="hidden" name="_method" value="put">
+    <input type="submit" value="EDIT">
+  </form>
+
+    <%= erb :'_delete', locals: {user: @user, post: @post} %>
+  <% else %>
+  <% redirect '/' %>
+  <% end %>
+
+</div>xw
