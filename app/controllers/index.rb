@@ -1,5 +1,6 @@
-  get '/'do
+get '/'do
   @post = Post.all
+  @user = User.find_by(username: params[:username])
   erb :index
 end
 

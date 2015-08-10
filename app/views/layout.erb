@@ -30,18 +30,14 @@
         <ul class="pure-menu-list">
             <li class="pure-menu-item"><a href="/" class="pure-menu-link">Home</a></li>
             <li class="pure-menu-item"><a href="#" class="pure-menu-link" onclick="startUp">Refresh Location</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">View Buzz</a></li>
-            <% if session[:user_id] %>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">New Buzz</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">My Buzz</a></li>
-            <li class="pure-menu-item"><a href="/logout" class="pure-menu-link">Logout</a></li>
-            <% end %>
+            <li class="pure-menu-item"><a href="/dashboard" class="pure-menu-link">View Buzz</a></li>
             <li class="pure-menu-item"><a href="#" class="pure-menu-link">Github</a></li>
         </ul>
     </div>
   </div>
   <br>
   <%= yield %>
+  <p>Your Buzz will be heard within this circle! Buzz it!</p>
   <p id="demo"></p>
   <div id="map-canvas"></div>
 

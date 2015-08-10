@@ -1,3 +1,8 @@
+get "/dashboard" do
+  @post = Post.all
+  erb :dashboard
+end
+
 
 get "/dashboard/:username" do
   if session[:user_id]
@@ -32,7 +37,7 @@ end
 post "/dashboard/:username/post/new" do
   if session[:user_id]
     @user = User.find_by(username: params[:username])
-    Post.create(title: params[:title], content: params[:content], user_id: session[:user_id])
+    Post.create(title: params[:title], content: params[:content], user_id: session[:user_id], latitude: params[:latitude], longitude: params[:longitude])
     redirect "/dashboard/#{params[:username]}"
   else
     redirect '/'

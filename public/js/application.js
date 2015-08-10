@@ -14,21 +14,22 @@ var x = document.getElementById("demo");
 var startUp = function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(success, failure);
-        navigator.geolocation.getCurrentPosition(setGeoCookie);
+        // navigator.geolocation.getCurrentPosition(setGeoCookie);
     } else {
         x.innerHTML = "Geolocation is not supported by this browser.";}
     }
 
-function setGeoCookie(position) {
-  var cookie_val = position.coords.latitude + "|" + position.coords.longitude;
-  document.cookie = "lat_lng=" + escape(cookie_val);
-}
-
-window.onload = startUp();
+// function setGeoCookie(position) {
+//   var cookie_val = position.coords.latitude + "|" + position.coords.longitude;
+//   document.cookie = "lat_lng=" + escape(cookie_val);
+// }
 
 function success(position) {
-  x.innerHTML="Latitude: " + position.coords.latitude +
-  "<br>Longitude: " + position.coords.longitude;
+  var buzzLatitude = document.getElementById('buzz-latitude')
+  var buzzLongitude = document.getElementById('buzz-longitude')
+  if (buzzLatitude) {
+  buzzLatitude.value= position.coords.latitude;
+  buzzLongitude.value = position.coords.longitude;}
   var myCenter = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
 
   var mapProp = {
@@ -60,3 +61,23 @@ function failure(position) {
   x.innerHTML = "Please enable location for best Buzy experience!"
 }
 
+window.onload = startUp();
+
+// $(document).ready(function(){
+
+//   $('#buzz-button').on("click", function(e){
+//     e.preventDefault();
+//     var buzz_url = $(this).parent().attr('action');
+//     var data =
+//     var request = $.ajax({
+//       method: 'post',
+//       url: buzz_url,
+//       dataType: 'json'
+//     });
+
+//     request.done(function(responseData) {
+//       console.log('responseData');
+//     });
+//   });
+
+// });
