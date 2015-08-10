@@ -1,7 +1,11 @@
 #map-canvas {
         height: 250px;
         width: 100%;
-      }
+}
+
+.container {
+    text-align: center;
+}
 
 .custom-menu-wrapper {
     background-color: #808080;
