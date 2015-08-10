@@ -4,7 +4,7 @@
   <article><%= @post.content %></article>
 
   <% if session[:user_id] == @post.user_id %>
-    <a href='/dashboard/<%= @username %>/post/<%= @post.id %>/edit'>Edit</a>
+    <a class="pure-button" href='/dashboard/<%= @username %>/post/<%= @post.id %>/edit'>Edit</a>
     <%= erb :'_delete', locals: {user: @user, post: @post} %>
   <% end %>
 

@@ -1,39 +1,34 @@
 <div class='container'>
-  <ul>
-  <li>New User Registration</li>
-  <form action="/user/new" method="post">
 
-    <li><label>Desired Username: </label>
-    <input type="text" name="username" placeholder="username" maxlength="30"></li>
+  <form class="pure-form" action="/user/new" method="post">
+    <fieldset>
+      <legend>New User Registration</legend>
+    <input type="text" name="username" placeholder="Desired Username" maxlength="30">
 
-    <li><label>Set your password: </label>
-    <input type="password" name="password" placeholder="password"></li>
+    <input type="password" name="password" placeholder="Set your password:">
 
-    <li><label>Confirm Password: </label>
-    <input type="password" name="confirm_password" placeholder="Re-enter password"></li>
+    <input type="password" name="confirm_password" placeholder="Confirm Password:">
 
-    <li><input class='pure-button pure-button-primary' type="submit" value="Register"></li>
+    <input class='pure-button pure-button-primary' type="submit" value="Register">
+    </fieldset>
   </form>
-  </ul>
+
 
   <% if @mismatch_error_message %>
     <p><%= @mismatch_error_message %></p>
   <% end %>
 
 
-  <ul>
-    <li>User Login</li>
-    <form action='/login' method ='post'>
 
-    <li><label>Username: </label>
-    <input type="text" name="username" placeholder="username" maxlength="30"></li>
 
-    <li><label>Password: </label>
-    <input type="password" name="password" placeholder="password"></li>
+    <form class="pure-form" action='/login' method ='post'>
+      <legend>User Login</legend>
+      <input type="text" name="username" placeholder="Username" maxlength="30">
 
-    <li><input class='pure-button pure-button-primary' type="submit" value="Login"></li>
+      <input type="password" name="password" placeholder="Password">
+
+      <input class='pure-button pure-button-primary' type="submit" value="Login">
   </form>
-  </ul>
 
   <% if @error_message %>
     <p><%= @error_message %></p>
