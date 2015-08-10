@@ -1,4 +1,4 @@
-<div class='container'>
+<div class='container' >
 
   <% @posts.each do |post|%>
     <% post_id = post.id %>
@@ -6,6 +6,6 @@
   <% end %>
 
   <% if session[:user_id] == @user.id %>
-    <a class="pure-button" href="/dashboard/<%= @username %>/post/new">Buzz</a>
+    <a class="pure-button pure-button-primary" href="/dashboard/<%= @username %>/post/new">Buzz</a>
   <% end %>
 </div>

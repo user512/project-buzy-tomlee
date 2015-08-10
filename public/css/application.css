@@ -7,6 +7,15 @@
     text-align: center;
 }
 
+article {
+    padding: 0.5em;
+}
+
+a {
+    text-decoration: none;
+    padding: 2em;
+}
+
 .custom-menu-wrapper {
     background-color: #808080;
     margin-bottom: 2.5em;
