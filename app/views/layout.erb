@@ -30,8 +30,10 @@
         <ul class="pure-menu-list">
             <li class="pure-menu-item"><a href="/" class="pure-menu-link">Home</a></li>
             <li class="pure-menu-item"><a href="#" class="pure-menu-link" onclick="startUp">Refresh Location</a></li>
-            <li class="pure-menu-item"><a href="/dashboard" class="pure-menu-link">View Buzz</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Github</a></li>
+            <% if @user %>
+              <li class="pure-menu-item"><a href="/dashboard/<%= @username %>" class="pure-menu-link">View Buzz</a></li>
+              <li class="pure-menu-item"><a href="/logout" class="pure-menu-link">Logout</a></li>
+            <% end %>
         </ul>
     </div>
   </div>

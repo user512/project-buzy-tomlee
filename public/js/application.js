@@ -28,13 +28,13 @@ function success(position) {
   var buzzLatitude = document.getElementById('buzz-latitude')
   var buzzLongitude = document.getElementById('buzz-longitude')
   if (buzzLatitude) {
-  buzzLatitude.value= position.coords.latitude;
+  buzzLatitude.value = position.coords.latitude;
   buzzLongitude.value = position.coords.longitude;}
   var myCenter = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
 
   var mapProp = {
   center: myCenter,
-  zoom:11,
+  zoom:10,
   mapTypeId:google.maps.MapTypeId.ROADMAP
   };
 
@@ -42,12 +42,12 @@ function success(position) {
 
   var myCity = new google.maps.Circle({
   center:myCenter,
-  radius:3000,
+  radius:12000,
   strokeColor:"#0000FF",
-  strokeOpacity:0.8,
+  strokeOpacity:0.4,
   strokeWeight:2,
   fillColor:"#0000FF",
-  fillOpacity:0.4
+  fillOpacity:0.2
   });
 
   myCity.setMap(map);
@@ -58,26 +58,32 @@ function success(position) {
 
 
 function failure(position) {
-  x.innerHTML = "Please enable location for best Buzy experience!"
+  document.getElementById("map-canvas").innerHTML = "Please enable location for best Buzy experience!"
 }
 
 window.onload = startUp();
 
-// $(document).ready(function(){
+$(document).ready(function(){
 
-//   $('#buzz-button').on("click", function(e){
-//     e.preventDefault();
-//     var buzz_url = $(this).parent().attr('action');
-//     var data =
-//     var request = $.ajax({
-//       method: 'post',
-//       url: buzz_url,
-//       dataType: 'json'
-//     });
+  $('.vote-button').on("click", function(e){
+    // debugger
+    e.preventDefault();
 
-//     request.done(function(responseData) {
-//       console.log('responseData');
-//     });
-//   });
+    var likeUrl = $(this).attr('href');
 
-// });
+
+    var likeRequest = $.ajax({
+      url: likeUrl,
+      type: 'get',
+    });
+
+    likeRequest.done(function(responseData){
+
+      var likePostId = $(this)[0].url.split('/')[2]
+      $('#'+$(this)[0].url.split('/')[2]).html('Like: ' +responseData)
+    })
+
+
+  });
+
+});

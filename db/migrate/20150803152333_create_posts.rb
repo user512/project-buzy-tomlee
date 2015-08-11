@@ -3,7 +3,7 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |t|
       t.string :title
       t.string :content
-      t.integer :vote, default: 0
+      t.integer :vote, default: 0,
       t.integer :view, default: 0
       t.float :latitude
       t.float :longitude

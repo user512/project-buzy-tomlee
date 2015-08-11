@@ -1,8 +1,11 @@
 <div class='container' >
 
-  <% @posts.each do |post|%>
+  <% @sorted_post.each do |post|%>
     <% post_id = post.id %>
-    <article><a id ="<%= post_id %>"href="/dashboard/<%= @username %>/post/<%= post_id %>"><%= post.title %></a></article>
+    <article>
+      <a href="/dashboard/<%= @username %>/post/<%= post_id %>"><%= post.title %></a>
+      <a id ='<%= post_id %>'class="vote-button" href="/post/<%= post_id %>/vote">Like: <%= post.vote %></a>
+    </article>
   <% end %>
 
   <% if session[:user_id] == @user.id %>
