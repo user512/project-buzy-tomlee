@@ -1,6 +1,6 @@
 get '/'do
   @post = Post.all
-  if logged_in
+  if session[:user_id] == true
     @user = User.find(session[:user_id])
     @username = User.find(session[:user_id]).username
   end
