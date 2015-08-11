@@ -8,7 +8,6 @@ get "/dashboard/:username" do
   if session[:user_id]
     @user = User.find_by(username: params[:username])
     @username = params[:username]
-
     @posts = Post.all
     @sorted_post = @posts.sort {|a,b| b.vote <=> a.vote}
     erb :dashboard

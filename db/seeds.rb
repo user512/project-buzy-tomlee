@@ -1,6 +1,6 @@
 sample_user_1 = { username: "admin",email:"testing@buzy.com", password: "testing", repetition: 100}
 
-sample_post_1 = { title: "$5 Buffet in SOMA??!!", content: "I heard that there is a $5 buffet in town, where is it?", user_id: 1, latitude: 37.7858607,
+sample_post_1 = { title: "$5 Buffet in SOMA??!!", content: "The cheapest Buffet in town is actually a strip club, Gold Club in Howard Street", user_id: 1, latitude: 37.7858607,
  longitude: -122.3996606}
 
 sample_post_2 = { title: "Great view and eat from Cliff House", content: "The view is amazing. The environment is great. We came here for brunch. I love the view walking the ocean and trails.", user_id: 1, latitude: 37.7784852,
