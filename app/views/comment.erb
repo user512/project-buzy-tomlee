@@ -1,0 +1,19 @@
+<div class="container">
+  <p><%= @post.title %></p>
+
+  <p><%= @post.content %></p>
+  <% if @comments %>
+  <br>
+    <p>
+      <% @comments.each do |comment| %>
+      <p><%= comment.content %></p>
+      <% end %>
+    </p>
+  <% end %>
+  <br>
+  <form action="/post/<%= @post.id %>/comment" method="post">
+    <input type"test" name="content" placeholder="Comment Here!">
+    <input class="pure-button pure-button-primary" type="submit" value="Comment">
+  </form>
+
+</div>

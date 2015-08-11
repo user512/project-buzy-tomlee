@@ -52,3 +52,16 @@ post "/dashboard/:username/post/new" do
   end
 end
 
+get "/post/:post_id/comment" do
+  @post = Post.find(params[:post_id])
+  @comments = Comment.where(post_id: params[:post_id])
+  erb :comment
+end
+
+post "/post/:post_id/comment" do
+  @post = Post.find(params[:post_id])
+  @user = User.find(session[:user_id])
+  Comment.create(content: params[:content], user_id: session[:user_id], post_id: params[:post_id])
+  redirect "dashboard/#{@user.username}"
+end
+

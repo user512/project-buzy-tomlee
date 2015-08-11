@@ -1,11 +1,9 @@
 <div class='container' >
-  <table class="pure-table">
-    <thead>
-      <% @sorted_post.each do |post|%>
-      <%= erb :_article, locals: {post: post} %>
-      <% end %>
-    </thead>
-  </table>
+
+  <% @sorted_post.each do |post|%>
+  <%= erb :_article, locals: {post: post} %>
+  <% end %>
+
 
 
   <% if session[:user_id] == @user.id %>
