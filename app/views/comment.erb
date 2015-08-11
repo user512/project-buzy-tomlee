@@ -3,13 +3,13 @@
 
   <p><%= @post.content %></p>
   <br>
-    <p>
-      <% if @comments %>
+  <p>
+    <% if @comments %>
       <% @comments.each do |comment| %>
       <p><%= comment.content %></p>
       <% end %>
-    </p>
-  <% end %>
+    <% end %>
+  </p>
   <br>
   <form action="/post/<%= @post.id %>/comment" method="post">
     <input type"test" name="content" placeholder="Comment Here!">

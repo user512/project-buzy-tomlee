@@ -3,6 +3,6 @@
 
 - User can buzz, comment on buzz and like the buzz
 
-- Currently, users can view all the post. (Need to restict user to only view post within 10 miles of user location)
+- Currently, users can view all the post. (Need to restict user to only view post within 10 miles of user location) Planning to use the Haversine Formula. Reference: http://andrew.hedges.name/experiments/haversine/
 
 - Stretch Goal: Drop marker on Google map for Buzz location
