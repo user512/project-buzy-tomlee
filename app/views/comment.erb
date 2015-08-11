@@ -2,9 +2,9 @@
   <p><%= @post.title %></p>
 
   <p><%= @post.content %></p>
-  <% if @comments %>
   <br>
     <p>
+      <% if @comments %>
       <% @comments.each do |comment| %>
       <p><%= comment.content %></p>
       <% end %>
