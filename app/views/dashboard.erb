@@ -1,12 +1,12 @@
 <div class='container' >
+  <table class="pure-table">
+    <thead>
+      <% @sorted_post.each do |post|%>
+      <%= erb :_article, locals: {post: post} %>
+      <% end %>
+    </thead>
+  </table>
 
-  <% @sorted_post.each do |post|%>
-    <% post_id = post.id %>
-    <article>
-      <a href="/dashboard/<%= @username %>/post/<%= post_id %>"><%= post.title %></a>
-      <a id ='<%= post_id %>'class="vote-button" href="/post/<%= post_id %>/vote">Like: <%= post.vote %></a>
-    </article>
-  <% end %>
 
   <% if session[:user_id] == @user.id %>
     <a class="pure-button pure-button-primary" href="/dashboard/<%= @username %>/post/new">Buzz</a>
