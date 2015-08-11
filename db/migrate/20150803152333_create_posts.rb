@@ -4,7 +4,6 @@ class CreatePosts < ActiveRecord::Migration
       t.string :title
       t.string :content
       t.integer :vote, default: 0
-      t.integer :view, default: 0
       t.float :latitude
       t.float :longitude
       t.integer :user_id

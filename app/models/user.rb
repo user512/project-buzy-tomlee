@@ -1,7 +1,6 @@
 require 'bcrypt'
 class User < ActiveRecord::Base
   has_many :posts
-  has_many :comments, through: :posts
   validates :username, uniqueness: :true, presence: :true
   include BCrypt
 

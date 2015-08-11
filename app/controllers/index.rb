@@ -4,7 +4,7 @@ get '/'do
   erb :index
 end
 
-post '/user/new' do
+post '/user' do
   if params[:password] == params[:confirm_password]
     @user = User.new
     @user.username = params[:username]
