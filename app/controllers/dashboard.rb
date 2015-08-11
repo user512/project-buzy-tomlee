@@ -5,7 +5,7 @@
 
 
 get "/dashboard/:username" do
-  if session[:user_id]
+  if logged_in
     @user = User.find_by(username: params[:username])
     @username = params[:username]
     @posts = Post.all
@@ -22,7 +22,7 @@ get "/dashboard/:username/post/new" do
 end
 
 get "/dashboard/:username/post/:post_id" do
-  if session[:user_id]
+  if logged_in
     @user = User.find_by(username: params[:username])
     @post = Post.find_by(id: params[:post_id])
     @username = params[:username]
@@ -43,12 +43,25 @@ get "/post/:post_id/vote" do
 end
 
 post "/dashboard/:username/post/new" do
-  if session[:user_id]
+  if logged_in
     @user = User.find_by(username: params[:username])
     Post.create(title: params[:title], content: params[:content], user_id: session[:user_id], latitude: params[:latitude], longitude: params[:longitude])
     redirect "/dashboard/#{params[:username]}"
   else
     redirect '/'
   end
+end
+
+get "/post/:post_id/comment" do
+  @post = Post.find(params[:post_id])
+  @comments = Comment.where(post_id: params[:post_id])
+  erb :comment
+end
+
+post "/post/:post_id/comment" do
+  @post = Post.find(params[:post_id])
+  @user = User.find(session[:user_id])
+  Comment.create(content: params[:content], user_id: session[:user_id], post_id: params[:post_id])
+  redirect "/post/#{@post.id}/comment"
 end
 

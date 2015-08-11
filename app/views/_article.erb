@@ -1,0 +1,10 @@
+<% post_id = post.id %>
+
+<article>
+  <a href="/dashboard/<%= @username %>/post/<%= post_id %>"><%= post.title %></a>
+  <br>
+  <a id ='<%= post_id %>'class="vote-button" href="/post/<%= post_id %>/vote">Like: <%= post.vote %></a>
+  <br>
+  <a href="/post/<%= post_id %>/comment">Comment</a>
+
+</article>

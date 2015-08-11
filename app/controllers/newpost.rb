@@ -1,3 +1,3 @@
-get "/:username/newpost" do
-  erb :new
-end
+# get "/:username/newpost" do
+#   erb :new
+# end
