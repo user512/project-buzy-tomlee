@@ -1,6 +1,7 @@
 get '/'do
   @post = Post.all
   if logged_in
+    @user = User.find(session[:user_id])
     @username = User.find(session[:user_id]).username
   end
   erb :index
