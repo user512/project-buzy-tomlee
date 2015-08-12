@@ -32,7 +32,7 @@ get "/dashboard/:username/post/:post_id" do
   end
 end
 
-get "/post/:post_id/vote" do
+post "/post/:post_id/vote" do
   @posts = Post.all
   @user = User.find_by(id: session[:user_id])
   @post = Post.find_by(id: params[:post_id])

@@ -74,7 +74,7 @@ $(document).ready(function(){
 
     var likeRequest = $.ajax({
       url: likeUrl,
-      type: 'get',
+      type: 'post',
     });
 
     likeRequest.done(function(responseData){
